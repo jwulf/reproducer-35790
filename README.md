@@ -276,6 +276,107 @@ There are three failure states:
 
       at test/test.spec.ts:83:13
 ```
+### Passing test
+
+For reference, here is what a passing test case instance looks like: 
+
+```
+console.log
+    processInstance {
+      "processDefinitionId": "test-tasks-query",
+      "processDefinitionVersion": 1,
+      "tenantId": "<default>",
+      "variables": {},
+      "processDefinitionKey": "2251799813688817",
+      "processInstanceKey": "6755399445547532"
+    }
+
+      at test/test-with-poll.spec.ts:42:13
+
+  console.log
+    tasks {
+      "items": [
+        {
+          "name": "Enter customer details",
+          "state": "CREATED",
+          "elementId": "Activity_1nouls1",
+          "processDefinitionId": "test-tasks-query",
+          "creationDate": "2025-07-28T03:42:29.485Z",
+          "tenantId": "<default>",
+          "processDefinitionVersion": 1,
+          "customHeaders": {},
+          "priority": 50,
+          "userTaskKey": "6755399445547538",
+          "elementInstanceKey": "6755399445547537",
+          "processDefinitionKey": "2251799813688817",
+          "processInstanceKey": "6755399445547532",
+          "formKey": "2251799813688818"
+        }
+      ],
+      "page": {
+        "totalItems": 1,
+        "startCursor": "WzE3NTM2NzQxNDk0ODUsNjc1NTM5OTQ0NTU0NzUzOF0=",
+        "endCursor": "WzE3NTM2NzQxNDk0ODUsNjc1NTM5OTQ0NTU0NzUzOF0="
+      }
+    }
+
+      at test/test-with-poll.spec.ts:65:13
+
+  console.log
+    task {
+      "name": "Enter customer details",
+      "state": "CREATED",
+      "elementId": "Activity_1nouls1",
+      "processDefinitionId": "test-tasks-query",
+      "creationDate": "2025-07-28T03:42:29.485Z",
+      "tenantId": "<default>",
+      "processDefinitionVersion": 1,
+      "customHeaders": {},
+      "priority": 50,
+      "userTaskKey": "6755399445547538",
+      "elementInstanceKey": "6755399445547537",
+      "processDefinitionKey": "2251799813688817",
+      "processInstanceKey": "6755399445547532",
+      "formKey": "2251799813688818"
+    }
+
+      at test/test-with-poll.spec.ts:79:13
+
+  console.log
+    variables {
+      "items": [
+        {
+          "value": "\"0a9922b4-1b90-4b9a-af05-c95e5ef5bf72\"",
+          "isTruncated": false,
+          "name": "queryTag",
+          "tenantId": "<default>",
+          "variableKey": "6755399445547533",
+          "scopeKey": "6755399445547532",
+          "processInstanceKey": "6755399445547532"
+        }
+      ],
+      "page": {
+        "totalItems": 1,
+        "startCursor": "WyJxdWVyeVRhZyIsNjc1NTM5OTQ0NTU0NzUzM10=",
+        "endCursor": "WyJxdWVyeVRhZyIsNjc1NTM5OTQ0NTU0NzUzM10="
+      }
+    }
+
+      at test/test-with-poll.spec.ts:94:13
+
+  camunda:test 🏁 Tearing down Camunda Process Test environment... +5s
+  camunda:test 🛑 Stopping runtime... +0ms
+  camunda:test 🛑 Stopping Camunda runtime... +5s
+  camunda:test ✅ Camunda runtime stopped successfully +0ms
+  camunda:test ✅ Camunda Process Test environment torn down successfully +1ms
+  console.log
+    Cancelling process instance 6755399445547532
+
+      at test/test-with-poll.spec.ts:18:17
+
+ PASS  test/test-with-poll.spec.ts (5.476 s)
+  ✓ It can retrieve the variables for a user task (5030 ms)
+```
 
 ## Additional detail
 
@@ -287,7 +388,7 @@ npm test:local
 
 This test does not fail after 25 runs. This seems to be an issue with the SaaS cluster only.
 
-You can also run the same test against SaaS with code that awaits eventual consistency (`test/test-with-poll.spec.ts`) with the command: 
+You can also run the same test against SaaS with code that awaits eventual consistency between API endpoints (`test/test-with-poll.spec.ts`) with the command: 
 
 ```
 npm run test:saas:poll
