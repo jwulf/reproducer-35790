@@ -34,13 +34,11 @@ For the remote test (against SaaS), the process instance is cancelled after each
 
 The test should either always pass or always fail. 
 
-The expectation is that the user task variables are always available when the user task is returned by the search endpoint. 
+The expectation is that the user task and its variables are available when the user task is returned by the search endpoint. The retrieval of a `userTaskKey` from the Search User Tasks endpoint is taken as a statement of the existence of the User Task entity, and the Get User Task endpoint's knowledge of it.
 
 ## Actual behaviour
 
-The test intermittently fails on SaaS, as one of the entities cannot be found by key.
-
-_Sometimes_ the user task or the user task variables are not available.
+The test intermittently fails on SaaS, as one of the entities (either User Task or User Task Variables) cannot be retrieved by `userTaskKey`, when the `userTaskKey` has been returned by the User Task search endpoint.
 
 There are three failure states: 
 
