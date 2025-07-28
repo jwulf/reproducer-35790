@@ -201,7 +201,7 @@ There are three failure states:
 1. We called [Search User Tasks](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/search-user-tasks/) and got back a CREATED User Task entity for our process instance. 
 2. We called [Get User Task](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/get-user-task/) using the `userTaskKey` from the search result, and got back a User Task entity.
 3. We call [Search User Task Variables](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/search-user-task-variables/).
-4. The Search User Task Variables endpoint returns a result `userTaskKey`, but the query set is empty.
+4. The Search User Task Variables endpoint returns a result for our `userTaskKey`, but the query set is empty (should contain variables).
 
 ```
 
