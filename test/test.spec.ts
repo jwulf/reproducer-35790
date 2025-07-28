@@ -1,8 +1,21 @@
+/**
+ * This test reproduces an intermittent issue with the Camunda 8 SaaS cluster.
+ * It creates a process instance with a user task, and then polls for the user task and
+ * its variables. Sometimes, the user task or its variables are not found, leading to a
+ * failure in the test.
+ * 
+ * To run, set up the Camunda SaaS cluster credentials in `camunda-test-config-saas.json` and run:
+ * `npm run test:saas`
+ * 
+ * To run the same test with polling for eventual consistency, see `test/test-with-poll.spec.ts`.
+ * 
+ * To run this test against a local Camunda container, use:
+ * `npm run test:local`
+ */
 import { randomUUID } from 'crypto'
 
 import {
     setupCamundaProcessTest,
-    CamundaAssert
 } from '@camunda8/process-test';
 import { PollingOperation } from '@camunda8/sdk';
 
@@ -70,12 +83,14 @@ test('It can retrieve the variables for a user task', async () => {
     expect(userTaskKey).toBeDefined()
 
     // Now get the user task by key 
+    // This *INTERMITTENTLY* fails, but it should not
     const task = await c8.getUserTask(userTaskKey)
     console.log('task', JSON.stringify(task, null, 2))
 
     expect(task.processInstanceKey).toBe(processInstance.processInstanceKey)
 
     // We got the user task, now we can check the variables
+    // This *INTERMITTENTLY* fails, but it should not
     const variables = await c8.searchUserTaskVariables({
         userTaskKey,
         sort: [{ field: 'name', order: 'ASC' }],

@@ -1,3 +1,12 @@
+/**
+ * This test reproduces an intermittent issue with the Camunda 8 SaaS cluster.
+ * It demonstrates that if you wait for eventual consistency *across API endpoints* using polling,
+ * the test passes consistently. However, if you do not wait for eventual consistency,
+ * the test fails intermittently.
+ * 
+ * To run, set up the Camunda SaaS cluster credentials in `camunda-test-config-saas.json` and run:
+ * `npm run test:saas:poll`
+ */
 import { randomUUID } from 'crypto'
 
 import {

@@ -15,7 +15,7 @@ This is a minimal reproducer for [issue #35790](https://github.com/camunda/camun
 - Configure 8.8.0-alpha6 SaaS cluster credentials in `camunda-test-config-saas.json`
 - `npm run test:saas`
 
-The test will run continually, until it fails.
+The test (`test/test.spec.ts`) will run continually, until it fails.
 
 ## Description
 
@@ -282,12 +282,12 @@ There are three failure states:
 You can run the exact same test against a local instance of a Camunda 8.8.0-alpha6 container locally with the command:
 
 ```
-npm test
+npm test:local
 ```
 
 This test does not fail after 25 runs. This seems to be an issue with the SaaS cluster only.
 
-You can also run the same test against SaaS with code that awaits eventual consistency (`test/test-with-poll`) with the command: 
+You can also run the same test against SaaS with code that awaits eventual consistency (`test/test-with-poll.spec.ts`) with the command: 
 
 ```
 npm run test:saas:poll
