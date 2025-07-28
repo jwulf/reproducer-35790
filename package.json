@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Run 'npm run test:local' or 'npm run test:saas' to execute tests\nSet credentials in camunda-test-config-saas.json for the SaaS test.\n\"",
-    "test:local": "counter=1; while npx jest; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\"",
+    "test:local": "counter=1; while npx jest test.spec; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\"",
     "test:saas": "counter=1; while CAMUNDA_TEST_CONFIG_FILE=camunda-test-config-saas.json npx jest test.spec; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\"",
     "test:saas:poll": "counter=1; while CAMUNDA_TEST_CONFIG_FILE=camunda-test-config-saas.json npx jest test-with-poll; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\""
   },
