@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "counter=1; while npx jest; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\"",
-    "test:saas": "counter=1; while CAMUNDA_TEST_CONFIG_FILE=camunda-test-config-saas.json npx jest; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\""
+    "test:saas": "counter=1; while CAMUNDA_TEST_CONFIG_FILE=camunda-test-config-saas.json npx jest test.spec; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\"",
+    "test:saas:poll": "counter=1; while CAMUNDA_TEST_CONFIG_FILE=camunda-test-config-saas.json npx jest test-with-poll; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\""
   },
   "keywords": [],
   "author": "",
