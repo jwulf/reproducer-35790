@@ -42,9 +42,11 @@ The test intermittently fails on SaaS, as one of the entities (either User Task 
 
 There are three failure states: 
 
-1. The user task is returned in a search query, but throws 404 when subsequently requested by key for the search query results.
-2. The query for the variables fails with 404 for the user task entity (the `userTaskKey` is a path parameter).
-3. The query for the search variables returns 200 but with an empty set of variables.
+The user task is returned in a search query, and then one of...
+
+1. Calling Get User Task using the `userTaskKey` from the query result throws 404.
+2. The User Task is fetched, but the query for the variables (Search User Task Variables) fails with 404 for the user task entity (the `userTaskKey` is a path parameter).
+3. The query for the search variables by `userTaskKey` returns 200 but with an empty set of variables.
 
 ### Example of user task returned in query, but 404 when you GET it
 
