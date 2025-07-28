@@ -1,0 +1,9 @@
+{
+    "runtimeMode": "REMOTE",
+    "zeebeRestAddress": "https://...syd-1.zeebe.camunda.io/",
+    "zeebeGrpcAddress": "grpcs://...syd-1.zeebe.camunda.io:443",
+    "zeebeClientId": "clientId",
+    "zeebeClientSecret": "clientSecret",
+    "camundaOauthUrl": "https://login.cloud.camunda.io/oauth/token",
+    "zeebeTokenAudience": "zeebe.camunda.io"
+}

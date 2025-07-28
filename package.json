@@ -1,0 +1,24 @@
+{
+  "name": "reproducer-35790",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "counter=1; while npx jest; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\"",
+    "test:saas": "counter=1; while CAMUNDA_TEST_CONFIG_FILE=camunda-test-config-saas.json npx jest; do echo \"Test passed (run $counter), running again...\"; ((counter++)); done; echo \"Test failed after $((counter-1)) successful runs\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@camunda8/sdk": "^8.7.24"
+  },
+  "devDependencies": {
+    "@camunda8/process-test": "^1.7.0",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3"
+  }
+}
