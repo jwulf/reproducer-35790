@@ -48,6 +48,8 @@ The user task is returned in a search query, and then one of...
 2. The User Task is fetched, but the query for the variables (Search User Task Variables) fails with 404 for the user task entity (the `userTaskKey` is a path parameter).
 3. The query for the search variables by `userTaskKey` returns 200 but with an empty set of variables.
 
+Using code that waits for eventual consistency across these three endpoints (Search User Tasks, Get User Task, Search User Task variables) make all the problems go away.
+
 ### Example of user task returned in query, but 404 when you GET it
 
 1. We called [Search User Tasks](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/search-user-tasks/) and got back a CREATED User Task entity for our process instance. 
