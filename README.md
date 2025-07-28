@@ -24,10 +24,11 @@ This reproducer runs a simple test repeatedly until it fails.
 The test:
 
 1. Creates a process instance that contains a user task. 
-2. Polls the Search User Task endpoint until it gets back the created User Task for the started process instance. 
-3. When it receives the user task, it calls the Search User Tasks Variables for the variables for the user task using the key returned by the previous query. 
+2. Polls the [Search User Tasks](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/search-user-tasks/) endpoint until it gets back the CREATED User Task for the started process instance. 
+3. It then calls the [Get User Task](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/get-user-task/) endpoint to get the User Task by the `userTaskKey` from the query result.
+3. When it receives the user task, it calls the [Search User Task Variables](https://docs.camunda.io/docs/next/apis-tools/orchestration-cluster-api-rest/specifications/search-user-task-variables/) endpoint for the variables for the user task using the key returned by the previous query. 
 
-For the remote test, the process instance is cancelled after each run.  
+For the remote test (against SaaS), the process instance is cancelled after each run.  
 
 ## Expected behaviour
 
@@ -37,7 +38,7 @@ The expectation is that the user task variables are always available when the us
 
 ## Actual behaviour
 
-The test intermittently fails on SaaS, as an entity cannot be found by key.
+The test intermittently fails on SaaS, as one of the entities cannot be found by key.
 
 _Sometimes_ the user task or the user task variables are not available.
 
