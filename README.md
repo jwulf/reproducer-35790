@@ -388,7 +388,7 @@ You can run the exact same test against a local instance of a Camunda 8.8.0-alph
 npm test:local
 ```
 
-This test does not fail after 25 runs. This seems to be an issue with the SaaS cluster only.
+This test does not fail after many runs. Note that the local test uses the H2 database in the container, so this is probably an ES index synchronisation issue.
 
 You can also run the same test against SaaS with code that awaits eventual consistency between API endpoints (`test/test-with-poll.spec.ts`) with the command: 
 
