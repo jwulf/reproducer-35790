@@ -6,7 +6,7 @@ This is a minimal reproducer for [issue #35790](https://github.com/camunda/camun
 
 The reproducer now runs 100 iterations in a GitHub Workflow against an 8.8.0-alpha6 SaaS cluster that has had thousands of process instances run on it. 
 
-The output of a run is visible here: [insert link after run]().
+The output of a run is visible [here](https://github.com/jwulf/reproducer-35790/actions/runs/16616950743/job/47011702660).
 
 The code for this reproducer is in the file `failure.collector.ts`.
 
