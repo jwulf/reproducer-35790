@@ -4,11 +4,33 @@ This is a minimal reproducer for [issue #35790](https://github.com/camunda/camun
 
 ## Update: Failure Collector in GitHub Workflow
 
-The reproducer now runs 100 iterations in a GitHub Workflow against an 8.8.0-alpha6 SaaS cluster that has had thousands of process instances run on it. 
+The reproducer now runs 100 iterations in a GitHub Workflow against an 8.8.0-alpha6 SaaS cluster that has had thousands of process instances run on it: `syd-1.zeebe.camunda.io/e4ce677f-e458-421b-ab33-3f0b02a3ebba`.
 
 The output of a run is visible [here](https://github.com/jwulf/reproducer-35790/actions/runs/16616950743/job/47011702660).
 
 The code for this reproducer is in the file `failure.collector.ts`.
+
+## Running this reproducer locally
+
+You'll need to set the configuration for connecting to your cluster in the environment, then run `npm test:collector` (after installing dependencies with `npm i`).
+
+The configuration credentials: 
+
+For SaaS: 
+
+```bash
+export ZEEBE_CLIENT_ID='...'
+export ZEEBE_CLIENT_SECRET='...'
+export CAMUNDA_OAUTH_URL='https://login.cloud.camunda.io/oauth/token'
+export ZEEBE_REST_ADDRESS='https://....'
+```
+
+For Self-Managed or something else with auth disabled:
+
+```bash
+export CAMUNDA_AUTH_STRATEGY='NONE'
+export ZEEBE_REST_ADDRESS='https://my-host:port'
+```
 
 ## Prerequisites
 
