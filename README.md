@@ -4,7 +4,7 @@ This is a minimal reproducer for [issue #35790](https://github.com/camunda/camun
 
 ## Update: Failure Collector in GitHub Workflow
 
-The reproducer now runs 100 iterations in a GitHub Workflow against an 8.8.0-alpha6 SaaS cluster that has had thousands of process instances run on it: `syd-1.zeebe.camunda.io/e4ce677f-e458-421b-ab33-3f0b02a3ebba`.
+The reproducer now runs 100 iterations in a GitHub Workflow ([collector.yml](.github/workflows/collector.yml)) against an 8.8.0-alpha6 SaaS cluster that has had thousands of process instances run on it: `syd-1.zeebe.camunda.io/e4ce677f-e458-421b-ab33-3f0b02a3ebba`.
 
 The output of a run is visible [here](https://github.com/jwulf/reproducer-35790/actions/runs/16616950743/job/47011702660).
 
