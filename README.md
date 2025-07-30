@@ -2,6 +2,14 @@
 
 This is a minimal reproducer for [issue #35790](https://github.com/camunda/camunda/issues/35790)
 
+## Update: Failure Collector in GitHub Workflow
+
+The reproducer now runs 100 iterations in a GitHub Workflow against an 8.8.0-alpha6 SaaS cluster that has had thousands of process instances run on it. 
+
+The output of a run is visible here: [insert link after run]().
+
+The code for this reproducer is in the file `failure.collector.ts`.
+
 ## Prerequisites
 
 * Node.js 20+
