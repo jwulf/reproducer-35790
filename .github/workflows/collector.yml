@@ -23,5 +23,6 @@ jobs:
           ZEEBE_CLIENT_ID: ${{ secrets.ZEEBE_CLIENT_ID }}
           CAMUNDA_OAUTH_URL: ${{ secrets.CAMUNDA_OAUTH_URL }}
           ZEEBE_CLIENT_SECRET: ${{ secrets.ZEEBE_CLIENT_SECRET }}
+          ZEEBE_TOKEN_AUDIENCE: ${{ secrets.ZEEBE_TOKEN_AUDIENCE }}
 
           
